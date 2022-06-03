@@ -27,6 +27,7 @@ def _median_even(v: Vector) -> float:
 
 
 def median(v: Vector) -> float:
+    """Computes the median (middle value)"""
     return _median_even(v) if len(v) % 2 == 0 else _median_odd(v)
 
 
@@ -55,7 +56,7 @@ def standardize(v: Vector) -> Vector:
 
 
 def variance(v: Vector) -> float:
-    """"""
+    """Computes the average squared deviation from the mean"""
     assert len(v) >= 2, "Variance requires at least two data points"
 
     num_elements = len(v)
@@ -74,6 +75,7 @@ def interquartile_range(v: Vector) -> float:
 
 
 def covariance(v: Vector, w: Vector) -> float:
+    """Computes the variance between two variables and their means in tandem"""
     assert len(v) == len(w), "The inputs must have the same length"
 
     return dot(standardize(v), standardize(w)) / (len(v) - 1)
