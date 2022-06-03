@@ -45,9 +45,9 @@ class Vector:
     def __str__(self) -> str:
         return self.data.__str__()
 
-    def sum_of_squares(v: Vector) -> float:
+    def sum_of_squares(self) -> float:
         """Returns the sum of ghe squares of the elements of a Vector"""
-        return dot(v, v)
+        return dot(self, self)
 
     def magnitude(self) -> float:
         """Returns the magnitude of a Vector"""
