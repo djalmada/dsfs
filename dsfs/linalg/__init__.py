@@ -1,7 +1,7 @@
 from .vector import (
     Vector,
     accumulate,
-    mean,
+    vector_mean,
     dot,
     squared_distance,
     distance,

@@ -66,7 +66,7 @@ def accumulate(vectors: List[Vector]) -> Vector:
         for i in range(num_elements)])
 
 
-def mean(vectors: List[Vector]) -> Vector:
+def vector_mean(vectors: List[Vector]) -> Vector:
     """Computes the element-wise average"""
     num_vectors = len(vectors)
 
