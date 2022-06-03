@@ -1,10 +1,11 @@
 from .vector import (
     Vector,
-    vector_sum,
-    vector_mean,
+    accumulate,
+    mean,
     dot,
-    sum_of_squares,
-    magnitude,
     squared_distance,
     distance,
+)
+from .matrix import (
+    Matrix,
 )

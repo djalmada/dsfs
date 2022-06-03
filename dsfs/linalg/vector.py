@@ -45,8 +45,16 @@ class Vector:
     def __str__(self) -> str:
         return self.data.__str__()
 
+    def sum_of_squares(v: Vector) -> float:
+        """Returns the sum of ghe squares of the elements of a Vector"""
+        return dot(v, v)
 
-def vector_sum(vectors: List[Vector]) -> Vector:
+    def magnitude(self) -> float:
+        """Returns the magnitude of a Vector"""
+        return math.sqrt(self.sum_of_squares())
+
+
+def accumulate(vectors: List[Vector]) -> Vector:
     """Sums all corresponding elements"""
     assert vectors, "The list of Vectors was empty"
 
@@ -58,11 +66,11 @@ def vector_sum(vectors: List[Vector]) -> Vector:
         for i in range(num_elements)])
 
 
-def vector_mean(vectors: List[Vector]) -> Vector:
+def mean(vectors: List[Vector]) -> Vector:
     """Computes the element-wise average"""
     num_vectors = len(vectors)
 
-    return vector_sum(vectors) / float(num_vectors)
+    return accumulate(vectors) / float(num_vectors)
 
 
 def dot(v: Vector, w: Vector) -> float:
@@ -70,19 +78,9 @@ def dot(v: Vector, w: Vector) -> float:
     return sum(v_i * w_i for v_i, w_i in zip(v, w))
 
 
-def sum_of_squares(v: Vector) -> float:
-    """Returns the sum of ghe squares of the elements of a Vector"""
-    return dot(v, v)
-
-
-def magnitude(v: Vector) -> float:
-    """Returns the magnitude of a Vector"""
-    return math.sqrt(sum_of_squares(v))
-
-
 def squared_distance(v: Vector, w: Vector) -> float:
     """Computes the squared distance between two Vectors"""
-    return sum_of_squares(v - w)
+    return (v - w).sum_of_squares()
 
 
 def distance(v: Vector, w: Vector) -> float:
