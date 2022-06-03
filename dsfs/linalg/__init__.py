@@ -8,4 +8,8 @@ from .vector import (
 )
 from .matrix import (
     Matrix,
+    make_matrix,
+    zeros,
+    ones,
+    eye,
 )
