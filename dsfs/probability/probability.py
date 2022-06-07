@@ -24,4 +24,9 @@ def normal_pdf(x: float, mu: float=0, sigma: float=1) -> float:
     mean (mu) and standard deviation (sigma). The probability that a random
     variable is selected from some range can be computed by taking the 
     difference of the PDF at two points and dividing by the interval."""
-    return (math.exp(-(x - mu) ** 2 / 2 / sigma ** 2) / (SQRT_TWO_PI))
+    return (math.exp(-(x - mu) ** 2 / 2 / sigma ** 2) / (SQRT_TWO_PI * sigma))
+
+
+def normal_cdf(x: float, mu: float=0, sigma: float=1) -> float:
+    """"""
+    return (1 + math.erf((x - mu) / math.sqrt(20 / sigma)) / 2)
