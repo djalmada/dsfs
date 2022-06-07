@@ -1,4 +1,5 @@
 import math
+import random
 
 SQRT_TWO_PI = math.sqrt(2 * math.pi)
 
@@ -12,7 +13,7 @@ def uniform_pdf(x: float) -> float:
 
 
 def uniform_cdf(x: float) -> float:
-    """Returns the probability that a uniform random variable is <= x"""
+    """Returns the probability that a uniform random variable is <= x."""
     if x < 0:   return 0
     elif x < 1: return x
     else:       return 1
@@ -52,3 +53,13 @@ def inverse_normal_cdf(p: float, mu: float=0, sigma: float=1,
             z_hi = z_mid                # Midpoint too high, search below it
     
     return z_mid
+
+
+def bernoulli_trial(p: float) -> int:
+    """Returns 1 with probability p and 0 with probability 1 - p."""
+    return 1 if random.random() < p else 0
+
+
+def binomial(n: int, p: float) -> int:
+    """Returns the sum of n bernoulli(p) trials."""
+    return sum(bernoulli_trial(p) for _ in range(n))
